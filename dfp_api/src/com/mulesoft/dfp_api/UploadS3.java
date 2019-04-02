@@ -40,7 +40,7 @@ public void uploadfilesons3()
 				//	XferMgrProgress.showTransferProgress(xfer);
 					// XferMgrProgress.waitForCompletion(xfer);
 				}
-				else if(s.contains("dfpextractsupplement"))
+				else if(s.contains("dfpextractsupplement_"))
 				{
 					File f = new File(s);    
 					TransferManager xfer_mgr = TransferManagerBuilder.standard().build();
@@ -52,7 +52,7 @@ public void uploadfilesons3()
 			//		XferMgrProgress.showTransferProgress(xfer);
 					// XferMgrProgress.waitForCompletion(xfer);
 				}
-				else if(s.contains("dfpextractsupplement2"))
+				else if(s.contains("dfpextractsupplement2_"))
 				{
 					File f = new File(s);    
 					TransferManager xfer_mgr = TransferManagerBuilder.standard().build();
@@ -105,7 +105,7 @@ public void uploadfilesons3()
 					File f = new File(s);    
 					TransferManager xfer_mgr = TransferManagerBuilder.standard().build();
 					String bucket_name="abm-dw/data-import/dfp/line-items";
-					String key_name="line_items.csv";
+					String key_name="line_items.txt";
 					System.out.println("uploaded successfully "+s);
 					@SuppressWarnings("unused")
 					Upload xfer=xfer_mgr.upload(bucket_name, key_name,f);
