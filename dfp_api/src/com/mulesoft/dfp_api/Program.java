@@ -17,15 +17,15 @@ public class Program {
 
 	public static void main(String[] args) throws Exception {
 
-		//String[] report_type= {"EXTRACT" , "SUPPLEMENT", "SUPPLEMENT2", "FUTURE", "INVENTORY", "YIELD"};
+	/*	//String[] report_type= {"EXTRACT" , "SUPPLEMENT", "SUPPLEMENT2", "FUTURE", "INVENTORY", "YIELD"};
 		
 		
 			DFP_Manager obj = new DFP_Manager();
 			sync_salesdata sync = new sync_salesdata();
 			sync.sync();
 			
-		//	get_lineitems lineitems = new get_lineitems();
-		//	lineitems.getlineitems();
+			get_lineitems lineitems = new get_lineitems();
+			lineitems.getlineitems();
 			
 			run_export exp = new run_export();
 			exp.export();
@@ -86,9 +86,13 @@ catch(Exception e) {System.out.println(e);}
 run_update update = new run_update();
 update.update();
 
+*/
 UploadS3 upload = new UploadS3();
 
 upload.uploadfilesons3();
+
+activate_dfp_pipeline activate = new activate_dfp_pipeline();
+activate.activate_pipeline();
 
 
 
