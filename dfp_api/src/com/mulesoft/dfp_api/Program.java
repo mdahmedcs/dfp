@@ -1,23 +1,24 @@
 package com.mulesoft.dfp_api;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.apache.commons.lang.StringUtils;
-
 //1.DFP SYNC WITH SALESFORCE
 //12.REPORTS
 //3.CAMPAIGN COUNT
 //4.DFP DATA EXPORT
 //activate_dfp_pipeline
+import java.io.IOException;
+import org.apache.commons.exec.CommandLine;
+import org.apache.commons.exec.DefaultExecutor;
+import org.apache.commons.exec.ExecuteException;
+
+
+
 
 
 public class Program {
 
+
 	public static void main(String[] args) throws Exception {
 
-	/*	//String[] report_type= {"EXTRACT" , "SUPPLEMENT", "SUPPLEMENT2", "FUTURE", "INVENTORY", "YIELD"};
+		String[] report_type= {"EXTRACT" , "SUPPLEMENT", "SUPPLEMENT2", "FUTURE", "INVENTORY", "YIELD"};
 		
 		
 			DFP_Manager obj = new DFP_Manager();
@@ -86,15 +87,23 @@ catch(Exception e) {System.out.println(e);}
 run_update update = new run_update();
 update.update();
 
-*/
+
 UploadS3 upload = new UploadS3();
 
-upload.uploadfilesons3();
+upload.cmd_upload_files();
+
+CLIManager cmd = new CLIManager();
+	   cmd.run(upload.cmd_archive_files());
+		cmd.run(upload.cmd_remove_files());
 
 activate_dfp_pipeline activate = new activate_dfp_pipeline();
 activate.activate_pipeline();
 
+		
+        
+	
 
+		
 
 }
 

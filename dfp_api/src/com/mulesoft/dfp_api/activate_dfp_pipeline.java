@@ -1,8 +1,5 @@
 package com.mulesoft.dfp_api;
 
-import org.mule.api.MuleEventContext;
-import org.mule.api.lifecycle.Callable;
-
 public class activate_dfp_pipeline 
 {
 

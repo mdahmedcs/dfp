@@ -39,6 +39,7 @@ public class TimestampManager {
 	
 	public String getTimeStampFromFilename(String filename) 
 	{		
+		
 		String[] filenameParts = null;
 		String fileDate = "";
 		

@@ -4,9 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -478,6 +476,7 @@ public class DFP_Manager {
 			if (session != null) {
 				AdManagerServices = new AdManagerServices();
 				dfpTransArrayList = runAndGetLineItems(AdManagerServices, session);
+				
 			}
 		}
 		catch (Exception e) {
@@ -1060,36 +1059,36 @@ public class DFP_Manager {
 //	    	    reportQuery.setColumns(new Column[] {Column.TOTAL_LINE_ITEM_LEVEL_IMPRESSIONS, Column.TOTAL_LINE_ITEM_LEVEL_CLICKS, Column.TOTAL_LINE_ITEM_LEVEL_CTR, Column.TOTAL_ACTIVE_VIEW_ELIGIBLE_IMPRESSIONS, Column.TOTAL_ACTIVE_VIEW_MEASURABLE_IMPRESSIONS, Column.TOTAL_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS, Column.TOTAL_ACTIVE_VIEW_MEASURABLE_IMPRESSIONS_RATE, Column.TOTAL_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS_RATE, Column.RICH_MEDIA_BACKUP_IMAGES, Column.RICH_MEDIA_DISPLAY_TIME, Column.RICH_MEDIA_AVERAGE_DISPLAY_TIME, Column.RICH_MEDIA_EXPANSIONS, Column.RICH_MEDIA_EXPANDING_TIME, Column.RICH_MEDIA_INTERACTION_TIME, Column.RICH_MEDIA_INTERACTION_COUNT, Column.RICH_MEDIA_INTERACTION_RATE, Column.RICH_MEDIA_AVERAGE_INTERACTION_TIME, Column.RICH_MEDIA_INTERACTION_IMPRESSIONS, Column.RICH_MEDIA_MANUAL_CLOSES, Column.RICH_MEDIA_FULL_SCREEN_IMPRESSIONS, Column.RICH_MEDIA_VIDEO_INTERACTIONS, Column.RICH_MEDIA_VIDEO_INTERACTION_RATE, Column.RICH_MEDIA_VIDEO_PLAYES, Column.RICH_MEDIA_VIDEO_COMPLETES, Column.RICH_MEDIA_VIDEO_REPLAYS, Column.RICH_MEDIA_VIDEO_VIEW_TIME, Column.RICH_MEDIA_VIDEO_VIEW_RATE, Column.VIDEO_VIEWERSHIP_START, Column.VIDEO_VIEWERSHIP_FIRST_QUARTILE, Column.VIDEO_VIEWERSHIP_MIDPOINT, Column.VIDEO_VIEWERSHIP_THIRD_QUARTILE, Column.VIDEO_VIEWERSHIP_COMPLETE, Column.VIDEO_VIEWERSHIP_AVERAGE_VIEW_RATE, Column.VIDEO_VIEWERSHIP_AVERAGE_VIEW_TIME, Column.VIDEO_VIEWERSHIP_COMPLETION_RATE, Column.VIDEO_VIEWERSHIP_ENGAGED_VIEW, Column.VIDEO_VIEWERSHIP_AUTO_PLAYS, Column.VIDEO_VIEWERSHIP_CLICK_TO_PLAYS, Column.VIDEO_INTERACTION_AVERAGE_INTERACTION_RATE });	    	    
 	    	    reportQuery.setColumns(new Column[] {Column.TOTAL_LINE_ITEM_LEVEL_IMPRESSIONS, Column.TOTAL_LINE_ITEM_LEVEL_CLICKS, Column.TOTAL_LINE_ITEM_LEVEL_CTR, Column.TOTAL_ACTIVE_VIEW_ELIGIBLE_IMPRESSIONS, Column.TOTAL_ACTIVE_VIEW_MEASURABLE_IMPRESSIONS, Column.TOTAL_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS, Column.TOTAL_ACTIVE_VIEW_MEASURABLE_IMPRESSIONS_RATE, Column.TOTAL_ACTIVE_VIEW_VIEWABLE_IMPRESSIONS_RATE, Column.RICH_MEDIA_BACKUP_IMAGES, Column.RICH_MEDIA_DISPLAY_TIME, Column.RICH_MEDIA_AVERAGE_DISPLAY_TIME, Column.RICH_MEDIA_EXPANSIONS, Column.RICH_MEDIA_EXPANDING_TIME, Column.RICH_MEDIA_INTERACTION_TIME, Column.RICH_MEDIA_INTERACTION_COUNT, Column.RICH_MEDIA_INTERACTION_RATE, Column.RICH_MEDIA_AVERAGE_INTERACTION_TIME, Column.RICH_MEDIA_INTERACTION_IMPRESSIONS, Column.RICH_MEDIA_MANUAL_CLOSES, Column.RICH_MEDIA_FULL_SCREEN_IMPRESSIONS, Column.RICH_MEDIA_VIDEO_INTERACTIONS, Column.RICH_MEDIA_VIDEO_INTERACTION_RATE, Column.RICH_MEDIA_VIDEO_PLAYES, Column.RICH_MEDIA_VIDEO_COMPLETES, Column.RICH_MEDIA_VIDEO_REPLAYS, Column.RICH_MEDIA_VIDEO_VIEW_TIME, Column.RICH_MEDIA_VIDEO_VIEW_RATE, Column.VIDEO_VIEWERSHIP_START, Column.VIDEO_VIEWERSHIP_FIRST_QUARTILE, Column.VIDEO_VIEWERSHIP_MIDPOINT, Column.VIDEO_VIEWERSHIP_THIRD_QUARTILE, Column.VIDEO_VIEWERSHIP_COMPLETE, Column.VIDEO_VIEWERSHIP_AVERAGE_VIEW_RATE, Column.VIDEO_VIEWERSHIP_AVERAGE_VIEW_TIME, Column.VIDEO_VIEWERSHIP_COMPLETION_RATE, Column.VIDEO_VIEWERSHIP_ENGAGED_VIEW, Column.VIDEO_VIEWERSHIP_AUTO_PLAYS, Column.VIDEO_VIEWERSHIP_CLICK_TO_PLAYS });	    	    
 	    	    reportQuery.setAdUnitView(ReportQueryAdUnitView.HIERARCHICAL);   
-	    	    reportQuery.setDateRangeType(DateRangeType.YESTERDAY);	    
-		//    	reportQuery.setDateRangeType(DateRangeType.CUSTOM_DATE);		        
-	    //      reportQuery.setStartDate(
-	    //              DateTimes.toDateTime("2019-03-05T00:00:00", "America/New_York").getDate());
-	    //	    reportQuery.setEndDate(
-	    //	                DateTimes.toDateTime("2019-03-16T00:00:00", "America/New_York").getDate()); 	    	    
+	    	//    reportQuery.setDateRangeType(DateRangeType.YESTERDAY);	    
+		   	reportQuery.setDateRangeType(DateRangeType.CUSTOM_DATE);		        
+	         reportQuery.setStartDate(
+	                  DateTimes.toDateTime("2019-04-02T00:00:00", "America/New_York").getDate());
+	    	    reportQuery.setEndDate(
+	    	                DateTimes.toDateTime("2019-04-03T00:00:00", "America/New_York").getDate()); 	    	    
 	    		break;
 	    	case EXTRACT_SUPPLEMENT: //Formerly Delivery2 in .NET code version (dfpextractsupplement.csv)
 	    		reportQuery.setDimensions(new Dimension[] {Dimension.DATE, Dimension.LINE_ITEM_NAME, Dimension.CUSTOM_CRITERIA, Dimension.LINE_ITEM_ID, Dimension.CUSTOM_TARGETING_VALUE_ID, Dimension.CREATIVE_ID, Dimension.AD_UNIT_ID});
 	    	    reportQuery.setDimensionAttributes(new DimensionAttribute[] {DimensionAttribute.LINE_ITEM_DELIVERY_INDICATOR });    
 	    		reportQuery.setColumns(new Column[] {Column.TOTAL_LINE_ITEM_LEVEL_IMPRESSIONS, Column.TOTAL_LINE_ITEM_LEVEL_CLICKS, Column.TOTAL_LINE_ITEM_LEVEL_CTR });
 		    	reportQuery.setAdUnitView(ReportQueryAdUnitView.HIERARCHICAL);    
-		   	reportQuery.setDateRangeType(DateRangeType.YESTERDAY);		        
-	//    	reportQuery.setDateRangeType(DateRangeType.CUSTOM_DATE);		        
-		//        reportQuery.setStartDate(
-		  //              DateTimes.toDateTime("2019-03-05T00:00:00", "America/New_York").getDate());
-		    //    reportQuery.setEndDate(
-		      //          DateTimes.toDateTime("2019-03-16T00:00:00", "America/New_York").getDate());		    	
+		 //  	reportQuery.setDateRangeType(DateRangeType.YESTERDAY);		        
+		    	reportQuery.setDateRangeType(DateRangeType.CUSTOM_DATE);		        
+		    	reportQuery.setStartDate(
+		   			DateTimes.toDateTime("2019-04-02T00:00:00", "America/New_York").getDate());
+		    	reportQuery.setEndDate(
+		    			DateTimes.toDateTime("2019-04-03T00:00:00", "America/New_York").getDate());		    	
 	    		break;    		
 	    	case EXTRACT_SUPPLEMENT2: //Remove Dimension.CUSTOM_CRITERIA  and Dimension.CUSTOM_TARGETING_VALUE_ID.
 	    		reportQuery.setDimensions(new Dimension[] {Dimension.DATE, Dimension.LINE_ITEM_NAME, Dimension.LINE_ITEM_ID, Dimension.CREATIVE_ID, Dimension.AD_UNIT_ID});
 	    	    reportQuery.setDimensionAttributes(new DimensionAttribute[] {DimensionAttribute.LINE_ITEM_DELIVERY_INDICATOR });    
 	    		reportQuery.setColumns(new Column[] {Column.TOTAL_LINE_ITEM_LEVEL_IMPRESSIONS, Column.TOTAL_LINE_ITEM_LEVEL_CLICKS, Column.TOTAL_LINE_ITEM_LEVEL_CTR });
 		    	reportQuery.setAdUnitView(ReportQueryAdUnitView.HIERARCHICAL);    
-		    	reportQuery.setDateRangeType(DateRangeType.YESTERDAY);		        
-	//	    	reportQuery.setDateRangeType(DateRangeType.CUSTOM_DATE);		        
-	//	        reportQuery.setStartDate(
-    //		                DateTimes.toDateTime("2019-03-05T00:00:00", "America/New_York").getDate());
-	//	        reportQuery.setEndDate(
-	//	                DateTimes.toDateTime("2019-03-16T00:00:00", "America/New_York").getDate());		    	
+		   // 	reportQuery.setDateRangeType(DateRangeType.YESTERDAY);		        
+		    	reportQuery.setDateRangeType(DateRangeType.CUSTOM_DATE);		        
+		        reportQuery.setStartDate(
+    		              DateTimes.toDateTime("2019-04-02T00:00:00", "America/New_York").getDate());
+		      reportQuery.setEndDate(
+		              DateTimes.toDateTime("2019-04-03T00:00:00", "America/New_York").getDate());		    	
 	    		break;    		
 	    	case EXTRACT_YIELD: //Formerly Delivery4 in .NET code version (dfpyield.csv)
 	    		reportQuery.setDimensions(new Dimension[] {Dimension.DATE, Dimension.AD_UNIT_NAME});
